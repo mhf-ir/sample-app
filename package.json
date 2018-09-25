@@ -1,0 +1,71 @@
+{
+  "name": "sample",
+  "version": "0.0.1",
+  "description": "Sample",
+  "main": "index.js",
+  "keywords": [
+    "sample"
+  ],
+  "private": true,
+  "authors": [
+    {
+      "name": "Muhammad Hussein Fattahizadeh",
+      "email": "f@dpap.ir",
+      "url": "https://dpap.ir/stuff/f"
+    }
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "node": ">=8.0",
+    "npm": ">=5.6"
+  },
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "scripts": {
+    "coverage": "NODE_ENV=test nyc mocha -r ts-node/register test/**/*.spec.ts",
+    "coverage-gitlab": "ts-node test/helpers/coverage.ts",
+    "doc": "typedoc --target es2017 --hideGenerator --theme minimal --out doc src",
+    "lint": "tslint --project .",
+    "test": "NODE_ENV=test mocha -r ts-node/register test/**/*.spec.ts"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "json-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
+  "dependencies": {
+    "yargs": "^12.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1",
+    "@types/mocha": "^5.2",
+    "@types/node": "^10",
+    "@types/yargs": "^12.0",
+    "chai": "^4.1",
+    "mocha": "^5.2",
+    "nyc": "^13.0",
+    "ts-node": "^7.0",
+    "tslint": "^5.11",
+    "tslint-config-airbnb": "^5.11",
+    "tslint-sonarts": "^1.8",
+    "typedoc": "^0.12",
+    "typescript": "^3.0"
+  }
+}
